@@ -48,7 +48,12 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       setIsLoading(false);
     };
 
-    setTokenListIntoCache();
+    const tokenList = localStorage.getItem("tokenList");
+    if (!tokenList) {
+      setTokenListIntoCache();
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
   return (
