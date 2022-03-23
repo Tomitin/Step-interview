@@ -1,0 +1,101 @@
+.ant-table-cell {
+  vertical-align: top;
+}
+
+.ant-btn-primary:not([disabled]) {
+  border-color: transparent !important;
+  background-color: #003628 !important;
+  color: #06d6a0 !important;
+}
+
+.ant-btn-primary:not([disabled]) {
+  border-color: transparent !important;
+  background-color: #003628 !important;
+  color: #06d6a0 !important;
+}
+
+.ant-btn-primary:not([disabled]):hover {
+  color: rgb(0, 0, 0) !important;
+  background: rgb(6, 214, 160) !important;
+}
+
+.ant-btn-primary:not([disabled]):focus {
+  border: 1px solid rgb(6, 214, 160) !important;
+}
+
+a.ant-typography {
+  color: #06d6a0 !important;
+}
+
+a.ant-typography:hover {
+  color: #07a87e !important;
+}
+
+a.ant-typography:focus {
+  color: #00e9ab !important;
+}
+
+.ant-table-row {
+  background: #202020 !important;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-cell:not(.ant-table-column-has-sorters):hover {
+  background: #141414 !important;
+}
+.ant-table-thead > tr > th:hover.ant-table-column-has-sorters {
+  background: #303030 !important;
+}
+
+.ant-table-thead > tr > th {
+  border-bottom: none !important;
+}
+
+.ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: transparent;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td,
+td.ant-table-cell-row-hover,
+.ant-table-cell.ant-table-column-sort {
+  background: #202020 !important;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td,
+.ant-table tfoot > tr > th,
+.ant-table tfoot > tr > td {
+  padding: 20px 16px 14px 16px !important;
+}
+
+.ant-table-content table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: none !important;
+}
+
+.td.ant-table-column-sort {
+  background-color: #202020 !important;
+}
+
+.anticon.anticon-right.ant-collapse-arrow {
+  color: #fff;
+  font-size: 16px !important;
+}
+
+.ant-collapse-header .ant-collapse-extra {
+  margin: auto 0 auto auto;
+}
+
+.ant-table-cell:hover {
+  background: #202020 !important;
+}
+
+.ant-collapse-header[aria-expanded="false"] .ant-collapse-arrow svg {
+  transform: rotate(-90deg) !important;
+}
