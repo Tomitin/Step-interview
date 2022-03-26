@@ -35,9 +35,7 @@ import { ManagedFund } from "models/funds";
 import CollapsePanel from "antd/lib/collapse/CollapsePanel";
 import { ColumnsType } from "antd/lib/table";
 import FundPopover from "components/FundPopover";
-
-const investinFundInfoURL = (fundAddress: string) =>
-  `https://capitalfund-api-1-8ftn8.ondigitalocean.app/fund/${fundAddress}/decentralised`;
+import axios from "axios";
 
 export const HomeView: FC = ({}) => {
   const wallet = useWallet();
@@ -72,10 +70,9 @@ export const HomeView: FC = ({}) => {
       async (investment, index) => {
         totalPortfolioAmount += Number(investment.currentReturns);
         try {
-          const fundResponse = await fetch(
-            investinFundInfoURL(investment.fundAddress)
+          const fundResponse = await axios.get(
+            "/api/fund/" + investment.fundAddress
           );
-          const fundData = await fundResponse.json();
 
           // Calculate the sum of all tokens held by the fund
           const totalFundAllocationsAmount = investment.tokens.reduce(
@@ -109,7 +106,7 @@ export const HomeView: FC = ({}) => {
               name: "Investin",
             },
             fund: {
-              name: fundData.fund.name,
+              name: fundResponse.data.data.fund.name,
               address: investment.fundAddress,
             },
             currentPerformance:
@@ -141,12 +138,12 @@ export const HomeView: FC = ({}) => {
       // 1 account  "8gpJoXXcYHKKe7ZVihEmP99SRAkqEmbsEb4Qr5fqFQga"
 
       // For own wallet
-      const portfolio = await getPortfolioByAddress(
-        wallet.publicKey.toString()
-      );
       // const portfolio = await getPortfolioByAddress(
-      //   "6F49KZQJBJmZ6Nn7JnxheWQa8xPxu37x7FYLHM2QiX1s"
+      //   wallet.publicKey.toString()
       // );
+      const portfolio = await getPortfolioByAddress(
+        "6F49KZQJBJmZ6Nn7JnxheWQa8xPxu37x7FYLHM2QiX1s"
+      );
       setIsLoading(false);
       setManagedFundsList(portfolio.investmentList);
       setTotalPortfolioAmount(portfolio.totalPortfolioAmount);
