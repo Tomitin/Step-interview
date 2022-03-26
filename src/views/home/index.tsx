@@ -30,7 +30,7 @@ import Link from "antd/lib/typography/Link";
 import { InvestinClient } from "../../investin-sdk/src/index";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey } from "@solana/web3.js";
-import { INVESTMENT_MODEL } from "@investin/client-sdk";
+import { INVESTMENT_MODEL } from "../../investin-sdk/src/types";
 import { ManagedFund } from "models/funds";
 import CollapsePanel from "antd/lib/collapse/CollapsePanel";
 import { ColumnsType } from "antd/lib/table";
@@ -141,12 +141,12 @@ export const HomeView: FC = ({}) => {
       // 1 account  "8gpJoXXcYHKKe7ZVihEmP99SRAkqEmbsEb4Qr5fqFQga"
 
       // For own wallet
-      // const portfolio = await getPortfolioByAddress(
-      //   wallet.publicKey.toString()
-      // );
       const portfolio = await getPortfolioByAddress(
-        "6F49KZQJBJmZ6Nn7JnxheWQa8xPxu37x7FYLHM2QiX1s"
+        wallet.publicKey.toString()
       );
+      // const portfolio = await getPortfolioByAddress(
+      //   "6F49KZQJBJmZ6Nn7JnxheWQa8xPxu37x7FYLHM2QiX1s"
+      // );
       setIsLoading(false);
       setManagedFundsList(portfolio.investmentList);
       setTotalPortfolioAmount(portfolio.totalPortfolioAmount);
